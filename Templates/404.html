@@ -1,0 +1,17 @@
+<!-- templates/404.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Not Found - Poker Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Custom styles for the error page */
+    </style>
+</head>
+<body>
+    <h1>Oops! Page Not Found (404)</h1>
+    <p>The page you are looking for does not exist.</p>
+    <p><a href="{{ url_for('index') }}">Return to Home</a></p>
+</body>
+</html>

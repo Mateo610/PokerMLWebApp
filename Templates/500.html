@@ -1,0 +1,17 @@
+<!-- templates/500.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Server Error - Poker Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Custom styles for the error page */
+    </style>
+</head>
+<body>
+    <h1>Oops! Something Went Wrong (500)</h1>
+    <p>An internal server error occurred. Please try again later.</p>
+    <p><a href="{{ url_for('index') }}">Return to Home</a></p>
+</body>
+</html>

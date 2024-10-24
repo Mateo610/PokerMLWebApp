@@ -1,0 +1,41 @@
+<!-- templates/join_game.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join Game - Poker Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Join a Game Session</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% if game_sessions %}
+        <ul>
+            {% for session in game_sessions %}
+                <li>
+                    <strong>{{ session.session_name }}</strong> - Created at {{ session.created_at.strftime('%Y-%m-%d %H:%M:%S') }}
+                    <form action="{{ url_for('join_game') }}" method="post" style="display:inline;">
+                        <input type="hidden" name="session_id" value="{{ session.id }}">
+                        <button type="submit">Join</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No game sessions available.</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('create_game') }}">Create a new game session</a></p>
+    <p><a href="{{ url_for('index') }}">Back to Home</a></p>
+</body>
+</html>
